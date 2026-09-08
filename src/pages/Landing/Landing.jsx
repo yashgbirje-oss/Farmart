@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
 import { ArrowRight, Tractor, Store } from 'lucide-react';
-import WhyKisanConnect from '../../components/WhyKisanConnect';
+import WhyFarmart from '../../components/WhyFarmart';
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <WhyKisanConnect />
+      <WhyFarmart />
 
       {/* How it Works Section */}
       <div className="bg-gray-900 text-white rounded-3xl p-10 md:p-16 text-center">

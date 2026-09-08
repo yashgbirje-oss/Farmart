@@ -19,7 +19,7 @@ export default function Layout() {
             <div className="bg-brand-500 text-white p-1.5 rounded-lg">
               <Leaf size={24} />
             </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">KisanConnect</span>
+            <span className="text-xl font-bold text-gray-900 tracking-tight">Farmart</span>
           </Link>
 
           <nav className="flex items-center gap-4 sm:gap-6">
