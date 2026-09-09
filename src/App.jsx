@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 
 // Layout
@@ -19,7 +19,7 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Landing />} />
@@ -43,7 +43,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AppProvider>
   );
 }
