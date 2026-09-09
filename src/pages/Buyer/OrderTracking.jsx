@@ -11,8 +11,8 @@ export default function OrderTracking() {
   const order = orders.find(o => o.id === id) || {
     id,
     items: [
-      { product: { name: 'Tomato', price: 28, image: '🍅' }, quantity: 5, farmer: { id: 'f1', name: 'Ramesh Patil' } },
-      { product: { name: 'Onion', price: 32, image: '🧅' }, quantity: 5, farmer: { id: 'f2', name: 'Suresh Farm' } }
+      { product: { name: 'Tomato', price: 28, image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80' }, quantity: 5, farmer: { id: 'f1', name: 'Ramesh Patil' } },
+      { product: { name: 'Onion', price: 32, image: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&q=80' }, quantity: 5, farmer: { id: 'f2', name: 'Suresh Farm' } }
     ]
   };
 
@@ -63,7 +63,7 @@ export default function OrderTracking() {
                 <div className="flex gap-4 mb-8">
                   {group.items.map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="text-3xl">{item.product.image}</div>
+                      <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0"><img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" /></div>
                       <div>
                         <p className="font-semibold text-gray-900">{item.product.name}</p>
                         <p className="text-sm text-gray-500">{item.quantity} kg</p>

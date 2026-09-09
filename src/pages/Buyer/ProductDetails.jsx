@@ -32,8 +32,8 @@ export default function ProductDetails() {
       </button>
 
       <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col md:flex-row">
-        <div className="md:w-1/2 bg-gray-50 flex items-center justify-center p-12 text-9xl min-h-[300px]">
-          {product.image}
+        <div className="md:w-1/2 bg-gray-50 flex items-center justify-center min-h-[300px] overflow-hidden">
+          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
         </div>
         
         <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">

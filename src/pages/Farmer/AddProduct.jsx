@@ -39,7 +39,7 @@ export default function AddProduct() {
       ...formData,
       id: `p${Date.now()}`,
       farmerId: 'f1', // Mocking Ramesh Patil
-      image: formData.name === 'Tomato' ? '🍅' : (formData.name === 'Onion' ? '🧅' : '📦')
+      image: formData.name.toLowerCase().includes('tomato') ? 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80' : (formData.name.toLowerCase().includes('onion') ? 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&q=80' : 'https://images.unsplash.com/photo-1595859704253-15794a378298?w=500&q=80')
     };
     setProducts([newProd, ...products]);
     navigate('/farmer');

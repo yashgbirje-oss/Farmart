@@ -81,8 +81,8 @@ export default function Cart() {
               <div className="p-4 space-y-4">
                 {group.items.map((item, i) => (
                   <div key={i} className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center text-3xl">
-                      {item.product.image}
+                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden shrink-0">
+                      <img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-bold text-gray-900">{item.product.name}</h4>

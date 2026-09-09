@@ -72,7 +72,7 @@ export default function FarmerDashboard() {
             <div key={p.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 hover:shadow-md transition-shadow">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-3">
-                  <span className="text-4xl bg-gray-50 p-2 rounded-xl">{p.image}</span>
+                  <img src={p.image} alt={p.name} className="w-16 h-16 rounded-xl object-cover shrink-0" />
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
                     <p className="text-brand-600 font-semibold flex items-center gap-1">

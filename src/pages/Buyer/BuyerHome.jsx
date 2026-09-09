@@ -72,8 +72,8 @@ export default function BuyerHome() {
               const farmer = farmers.find(f => f.id === product.farmerId);
               return (
                 <div key={product.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow group flex flex-col">
-                  <div className="h-40 bg-gray-50 flex items-center justify-center text-7xl group-hover:scale-105 transition-transform duration-300">
-                    {product.image}
+                  <div className="h-40 bg-gray-50 flex items-center justify-center overflow-hidden">
+                    <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
