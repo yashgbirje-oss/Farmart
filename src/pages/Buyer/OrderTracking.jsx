@@ -54,7 +54,7 @@ export default function OrderTracking() {
           {Object.values(itemsByFarmer).map((group, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center">
-                <span className="font-semibold text-gray-900">👨‍🌾 Sub-order: {group.farmer.name}</span>
+                <span className="font-semibold text-gray-900">🚜 Sub-order: {group.farmer.name}</span>
                 <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded-full font-bold">
                   {idx === 0 ? 'Preparing' : 'Pickup Arranged'}
                 </span>
