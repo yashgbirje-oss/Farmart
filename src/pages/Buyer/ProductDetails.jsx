@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
-import { ArrowLeft, Star, BadgeCheck, MapPin, Truck, Plus, Minus, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Star, BadgeCheck, MapPin, Truck, Plus, Minus, ShoppingCart, Info, X } from 'lucide-react';
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -12,6 +12,7 @@ export default function ProductDetails() {
   const farmer = product ? farmers.find(f => f.id === product.farmerId) : null;
   
   const [qty, setQty] = useState(product?.minOrder || 1);
+  const [showBulkModal, setShowBulkModal] = useState(false);
 
   if (!product || !farmer) return <div className="text-center py-20 text-xl font-bold">Product not found</div>;
 
@@ -23,6 +24,12 @@ export default function ProductDetails() {
   const handleBuyNow = () => {
     addToCart(product, qty);
     navigate('/buyer/cart');
+  };
+
+  const handleBulkSubmit = (e) => {
+    e.preventDefault();
+    setShowBulkModal(false);
+    alert('Bulk quote request sent to the farmer successfully!');
   };
 
   return (
@@ -39,12 +46,13 @@ export default function ProductDetails() {
         <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
           <div className="flex justify-between items-start mb-2">
             <h1 className="text-3xl font-bold text-gray-900">{product.condition} {product.name}</h1>
-            <span className="text-3xl font-extrabold text-brand-600">₹{product.price}<span className="text-lg text-gray-500 font-medium">/ton</span></span>
+            <span className="text-3xl font-extrabold text-brand-600">&#8377;{product.price}<span className="text-lg text-gray-500 font-medium">/kg</span></span>
           </div>
           
-          <div className="flex items-center gap-3 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-100">
-            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Available: {product.quantity} tons</span>
-            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Min Order: {product.minOrder} tons</span>
+          <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-100">
+            <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full font-medium">Available Stock: {product.quantity} tons</span>
+            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Min Order: {product.minOrder} kg</span>
+            <span className="bg-brand-50 text-brand-700 px-3 py-1 rounded-full font-medium">Bulk Min Order: 1 ton</span>
           </div>
 
           <div className="space-y-4 mb-8">
@@ -71,7 +79,7 @@ export default function ProductDetails() {
           </div>
 
           <div className="mt-auto">
-            <label className="block text-sm font-medium text-gray-700 mb-3">Select Quantity (tons)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-3">Select Retail Quantity (kg)</label>
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center bg-gray-100 rounded-xl p-1 border border-gray-200">
                 <button 
@@ -84,18 +92,18 @@ export default function ProductDetails() {
                 <span className="w-16 text-center font-bold text-lg text-gray-900">{qty}</span>
                 <button 
                   className="p-2 bg-white rounded-lg shadow-sm hover:bg-gray-50 text-gray-700 disabled:opacity-50"
-                  onClick={() => setQty(Math.min(product.quantity, qty + 1))}
-                  disabled={qty >= product.quantity}
+                  onClick={() => setQty(Math.min(product.quantity * 1000, qty + 1))}
+                  disabled={qty >= product.quantity * 1000}
                 >
                   <Plus size={20} />
                 </button>
               </div>
               <div className="text-2xl font-bold text-gray-900">
-                Total: ₹{qty * product.price}
+                Total: &#8377;{qty * product.price}
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 mb-4">
               <button 
                 onClick={handleAdd}
                 className="flex-1 bg-white border-2 border-brand-500 text-brand-600 hover:bg-brand-50 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-2"
@@ -109,9 +117,49 @@ export default function ProductDetails() {
                 Buy Now
               </button>
             </div>
+            <button 
+              onClick={() => setShowBulkModal(true)}
+              className="w-full bg-gray-800 border-2 border-gray-800 text-white hover:bg-gray-900 py-4 rounded-xl font-bold transition-colors shadow-sm flex items-center justify-center gap-2"
+            >
+              <Info size={20} /> Request Bulk Quote
+            </button>
           </div>
         </div>
       </div>
+
+      {showBulkModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+            <div className="flex justify-between items-center p-6 border-b border-gray-100">
+              <h2 className="text-xl font-bold text-gray-900">Request Bulk Quote</h2>
+              <button onClick={() => setShowBulkModal(false)} className="text-gray-400 hover:text-gray-700">
+                <X size={24} />
+              </button>
+            </div>
+            <form onSubmit={handleBulkSubmit} className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Required Quantity (tons)</label>
+                <input type="number" min="1" required className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 outline-none" placeholder="e.g. 5" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Expected Price (₹/kg)</label>
+                <input type="number" required className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 outline-none" placeholder={`Current retail: &#8377;${product.price}/kg`} />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Location</label>
+                <input type="text" required className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 outline-none" placeholder="City or Pincode" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Message to Farmer</label>
+                <textarea rows="3" className="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-brand-500 outline-none" placeholder="Any special requirements?"></textarea>
+              </div>
+              <button type="submit" className="w-full bg-brand-600 text-white font-bold py-3 rounded-xl hover:bg-brand-700 transition-colors mt-2">
+                Submit Request
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -16,11 +16,11 @@ export const AppProvider = ({ children }) => {
 
   // Dummy Products
   const [products, setProducts] = useState([
-    { id: 'p1', farmerId: 'f1', name: 'Tomato', category: 'Vegetables', price: 28, quantity: 120, minOrder: 5, condition: 'Fresh', radius: 15, image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80' },
-    { id: 'p2', farmerId: 'f1', name: 'Onion', category: 'Vegetables', price: 30, quantity: 200, minOrder: 10, condition: 'Stored', radius: 15, image: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&q=80' },
-    { id: 'p3', farmerId: 'f2', name: 'Carrot', category: 'Vegetables', price: 40, quantity: 150, minOrder: 5, condition: 'Fresh', radius: 20, image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&q=80' },
-    { id: 'p4', farmerId: 'f2', name: 'Potato', category: 'Vegetables', price: 25, quantity: 300, minOrder: 10, condition: 'Stored', radius: 20, image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&q=80' },
-    { id: 'p5', farmerId: 'f3', name: 'Wheat', category: 'Grains', price: 42, quantity: 500, minOrder: 50, condition: 'Fresh', radius: 50, image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&q=80' },
+    { id: 'p1', farmerId: 'f1', name: 'Tomato', category: 'Vegetables', price: 28, quantity: 12, minOrder: 5, condition: 'Fresh', radius: 15, image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=500&q=80' },
+    { id: 'p2', farmerId: 'f1', name: 'Onion', category: 'Vegetables', price: 30, quantity: 20, minOrder: 10, condition: 'Stored', radius: 15, image: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=500&q=80' },
+    { id: 'p3', farmerId: 'f2', name: 'Carrot', category: 'Vegetables', price: 40, quantity: 8, minOrder: 5, condition: 'Fresh', radius: 20, image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&q=80' },
+    { id: 'p4', farmerId: 'f2', name: 'Potato', category: 'Vegetables', price: 25, quantity: 25, minOrder: 10, condition: 'Stored', radius: 20, image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&q=80' },
+    { id: 'p5', farmerId: 'f3', name: 'Wheat', category: 'Grains', price: 42, quantity: 50, minOrder: 50, condition: 'Fresh', radius: 50, image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=500&q=80' },
   ]);
 
   // Cart: array of cart items

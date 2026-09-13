@@ -83,7 +83,7 @@ export default function AddProduct() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Available Qty (tons)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Available Stock (tons)</label>
                 <input 
                   type="number" 
                   className="w-full p-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none"
@@ -92,7 +92,7 @@ export default function AddProduct() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Min Order (tons)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Min Order (kg)</label>
                 <input 
                   type="number" 
                   className="w-full p-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none"
@@ -104,7 +104,7 @@ export default function AddProduct() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Farmer Price (₹/ton)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Farmer Price (₹/kg)</label>
                 <input 
                   type="number" 
                   className="w-full p-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-brand-500 outline-none font-semibold text-lg"
@@ -191,11 +191,11 @@ export default function AddProduct() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
                       <p className="text-purple-200 text-sm mb-1">Your Price</p>
-                      <p className="text-2xl font-bold text-gray-200">₹{formData.price}/ton</p>
+                      <p className="text-2xl font-bold text-gray-200">₹{formData.price}/kg</p>
                     </div>
                     <div className="bg-purple-500/30 border border-purple-400/50 rounded-xl p-4 backdrop-blur-sm">
                       <p className="text-purple-100 text-sm mb-1">Recommended Local</p>
-                      <p className="text-2xl font-bold text-white">₹26 – ₹31/ton</p>
+                      <p className="text-2xl font-bold text-white">₹26 – ₹31/kg</p>
                     </div>
                   </div>
 
@@ -206,7 +206,7 @@ export default function AddProduct() {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-purple-200">Nearby Average</span>
-                      <span className="font-semibold">₹29/ton</span>
+                      <span className="font-semibold">₹29/kg</span>
                     </div>
                   </div>
 
@@ -224,7 +224,7 @@ export default function AddProduct() {
                       onClick={() => handleChangePrice(29)}
                       className="w-full bg-white text-purple-900 py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors"
                     >
-                      Use Recommended ₹29/ton
+                      Use Recommended ₹29/kg
                     </button>
                     <button 
                       onClick={() => setShowAI(false)}
