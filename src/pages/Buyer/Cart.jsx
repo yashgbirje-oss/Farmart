@@ -86,7 +86,7 @@ export default function Cart() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-bold text-gray-900">{item.product.name}</h4>
-                      <p className="text-sm text-gray-500">₹{item.product.price}/kg × {item.quantity} kg</p>
+                      <p className="text-sm text-gray-500">₹{item.product.price}/ton × {item.quantity} tons</p>
                     </div>
                     <div className="font-bold text-gray-900 text-right min-w-[80px]">
                       ₹{item.product.price * item.quantity}

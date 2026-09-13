@@ -59,7 +59,7 @@ export default function FarmerDashboard() {
           </div>
           <div>
             <p className="text-sm text-gray-500 font-medium">Products Sold</p>
-            <p className="text-2xl font-bold text-gray-900">42 kg</p>
+            <p className="text-2xl font-bold text-gray-900">42 tons</p>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function FarmerDashboard() {
                   <div>
                     <h3 className="text-lg font-bold text-gray-900">{p.name}</h3>
                     <p className="text-brand-600 font-semibold flex items-center gap-1">
-                      ₹{p.price} <span className="text-sm text-gray-500 font-normal">/kg</span>
+                      ₹{p.price} <span className="text-sm text-gray-500 font-normal">/ton</span>
                     </p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export default function FarmerDashboard() {
               <div className="space-y-2 text-sm text-gray-600 border-t border-gray-50 pt-4">
                 <div className="flex justify-between">
                   <span>Available:</span>
-                  <span className="font-medium text-gray-900">{p.quantity} kg</span>
+                  <span className="font-medium text-gray-900">{p.quantity} tons</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Delivery Radius:</span>

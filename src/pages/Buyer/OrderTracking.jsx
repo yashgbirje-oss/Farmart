@@ -66,7 +66,7 @@ export default function OrderTracking() {
                       <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0"><img src={item.product.image} alt={item.product.name} className="w-full h-full object-cover" /></div>
                       <div>
                         <p className="font-semibold text-gray-900">{item.product.name}</p>
-                        <p className="text-sm text-gray-500">{item.quantity} kg</p>
+                        <p className="text-sm text-gray-500">{item.quantity} tons</p>
                       </div>
                     </div>
                   ))}

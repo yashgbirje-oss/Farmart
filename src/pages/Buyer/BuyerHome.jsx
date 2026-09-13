@@ -79,7 +79,7 @@ export default function BuyerHome() {
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-bold text-gray-900">{product.condition} {product.name}</h3>
                       <span className="bg-brand-50 text-brand-700 px-2.5 py-1 rounded-lg font-bold">
-                        ₹{product.price}/kg
+                        ₹{product.price}/ton
                       </span>
                     </div>
                     
@@ -92,7 +92,7 @@ export default function BuyerHome() {
                         <span className="flex items-center gap-1"><MapPin w={12} h={12}/> {farmer?.distance} km away</span>
                         <span className="flex items-center gap-1 text-yellow-500"><Star w={12} h={12} fill="currentColor" /> {farmer?.rating}</span>
                       </div>
-                      <p className="text-xs text-brand-600 font-medium mt-1">Available: {product.quantity} kg</p>
+                      <p className="text-xs text-brand-600 font-medium mt-1">Available: {product.quantity} tons</p>
                     </div>
 
                     <Link 

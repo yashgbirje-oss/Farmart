@@ -39,12 +39,12 @@ export default function ProductDetails() {
         <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
           <div className="flex justify-between items-start mb-2">
             <h1 className="text-3xl font-bold text-gray-900">{product.condition} {product.name}</h1>
-            <span className="text-3xl font-extrabold text-brand-600">₹{product.price}<span className="text-lg text-gray-500 font-medium">/kg</span></span>
+            <span className="text-3xl font-extrabold text-brand-600">₹{product.price}<span className="text-lg text-gray-500 font-medium">/ton</span></span>
           </div>
           
           <div className="flex items-center gap-3 text-sm text-gray-600 mb-6 pb-6 border-b border-gray-100">
-            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Available: {product.quantity} kg</span>
-            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Min Order: {product.minOrder} kg</span>
+            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Available: {product.quantity} tons</span>
+            <span className="bg-gray-100 px-3 py-1 rounded-full font-medium">Min Order: {product.minOrder} tons</span>
           </div>
 
           <div className="space-y-4 mb-8">
@@ -71,7 +71,7 @@ export default function ProductDetails() {
           </div>
 
           <div className="mt-auto">
-            <label className="block text-sm font-medium text-gray-700 mb-3">Select Quantity (kg)</label>
+            <label className="block text-sm font-medium text-gray-700 mb-3">Select Quantity (tons)</label>
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center bg-gray-100 rounded-xl p-1 border border-gray-200">
                 <button 
